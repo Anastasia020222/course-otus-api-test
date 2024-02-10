@@ -1,3 +1,6 @@
+import static dto.Constants.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 import dto.Category;
 import dto.PetDto;
 import dto.response.PetResponse;
@@ -9,13 +12,10 @@ import services.ServicesApi;
 
 import java.util.Random;
 
-import static dto.Constants.*;
-import static org.junit.jupiter.api.Assertions.assertAll;
-
 public class UpdatePetTest {
 
-  public ServicesApi userApi = new ServicesApi();
-  public PetDto petDTO;
+  private final ServicesApi userApi = new ServicesApi();
+  private PetDto petDTO;
 
   //Изменение данных у существующего питомца
   //Создать питомца. Изменить любые данные и проверить, что у этого питомца (с тем же id) данные изменились
@@ -35,7 +35,7 @@ public class UpdatePetTest {
         .category(Category.builder()
             .id(150L)
             .name("dog").build())
-        .status(statusPending)
+        .status(STATUS_PENDING)
         .build();
 
     ValidatableResponse responseUpdate = userApi.updatePet(petDTO);
@@ -49,6 +49,10 @@ public class UpdatePetTest {
         () -> Assertions.assertNotEquals(categoryName, actualUpdatePet.getCategory().getName(), "The name of the pet category has not changed"),
         () -> Assertions.assertNotEquals(status, actualUpdatePet.getStatus(), "The status of the pet has not changed")
     );
+
+    userApi
+        .deletePet(actualUpdatePet.getId())
+        .statusCode(HttpStatus.SC_OK);
   }
 
   //Изменить данные у несуществующего питомца
@@ -56,13 +60,13 @@ public class UpdatePetTest {
   //Проверяем, что питомец будет создан,т.к его не существует
   @Test
   public void putInvalidPet() {
-    long newId = getPetId();
+    long newId = getNonExistentPetId();
     petDTO = PetDto.builder()
         .id(newId)
         .name("Jack")
         .category(Category.builder()
             .name("dog").build())
-        .status(statusSold)
+        .status(STATUS_SOLD)
         .build();
 
     ValidatableResponse responseUpdate = userApi.updatePet(petDTO);
@@ -74,11 +78,15 @@ public class UpdatePetTest {
         () -> Assertions.assertEquals(newId, actualUpdatePet.getId(), "The pet's id has changed"),
         () -> Assertions.assertEquals("Jack", actualUpdatePet.getName(), "The pet's name has not changed"),
         () -> Assertions.assertEquals("dog", actualUpdatePet.getCategory().getName(), "The name of the pet category has not changed"),
-        () -> Assertions.assertEquals(statusSold, actualUpdatePet.getStatus(), "The status of the pet has not changed")
+        () -> Assertions.assertEquals(STATUS_SOLD, actualUpdatePet.getStatus(), "The status of the pet has not changed")
     );
+
+    userApi
+        .deletePet(actualUpdatePet.getId())
+        .statusCode(HttpStatus.SC_OK);
   }
 
-  private long getPetId() {
+  private long getNonExistentPetId() {
     Random newInt = new Random();
     long intPet;
 

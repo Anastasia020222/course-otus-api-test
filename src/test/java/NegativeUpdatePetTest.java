@@ -1,9 +1,8 @@
-import static dto.Constants.*;
+import static dto.Constants.NAME_PET;
+import static dto.Constants.STATUS_SOLD;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import dto.Category;
 import dto.PetDto;
-import dto.Tag;
 import dto.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
@@ -11,27 +10,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import services.ServicesApi;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class AddPetTest {
+public class NegativeUpdatePetTest {
 
   private final ServicesApi userApi = new ServicesApi();
   private PetDto petDTO;
 
-  //Проверяем создание нового питомца с заданным id
+  //Проверяем создание питомца без указания id
   @Test
-  public void addPet() {
-    List<Tag> listTag = new ArrayList<>();
-    listTag.add(new Tag(29L, "cat"));
-
+  public void addPetWithoutId() {
     petDTO = PetDto.builder()
-        .id(ID)
         .name(NAME_PET)
-        .category(Category.builder()
-            .id(47L)
-            .name(CATEGORY_NAME).build())
-        .tags(listTag)
         .status(STATUS_SOLD)
         .build();
 
@@ -41,10 +29,8 @@ public class AddPetTest {
     response.statusCode(HttpStatus.SC_OK);
 
     assertAll("Check add pet response",
-        () -> Assertions.assertEquals(ID, actualPet.getId(), "IncorrectId"),
+        () -> Assertions.assertNotEquals(0, actualPet.getId(), "IncorrectId"),
         () -> Assertions.assertEquals(NAME_PET, actualPet.getName(), "IncorrectName"),
-        () -> Assertions.assertEquals(47L, actualPet.getCategory().getId(), "IncorrectCategoryName"),
-        () -> Assertions.assertEquals(CATEGORY_NAME, actualPet.getCategory().getName(), "IncorrectCategoryId"),
         () -> Assertions.assertEquals(STATUS_SOLD, actualPet.getStatus(), "IncorrectStatus")
     );
 

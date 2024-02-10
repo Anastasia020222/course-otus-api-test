@@ -1,5 +1,8 @@
 package services;
 
+import static dto.Constants.*;
+import static io.restassured.RestAssured.given;
+
 import dto.Category;
 import dto.PetDto;
 import dto.Tag;
@@ -10,14 +13,11 @@ import io.restassured.specification.RequestSpecification;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dto.Constants.*;
-import static io.restassured.RestAssured.given;
-
 public class ServicesApi {
 
-  private static final String BASE_URL = "https://petstore.swagger.io/v2";
+  private static final String BASE_URL = System.getProperty("webdriver.base.url");
   private static final String BASE_PATH = "/pet";
-  private RequestSpecification spec;
+  private final RequestSpecification spec;
   public PetDto petDTO;
 
   public ServicesApi() {
@@ -42,12 +42,12 @@ public class ServicesApi {
     listTag.add(new Tag(29L, "cat"));
 
     return petDTO = PetDto.builder()
-        .name(namePet)
+        .name(NAME_PET)
         .category(Category.builder()
             .id(47L)
-            .name(categoryName).build())
+            .name(CATEGORY_NAME).build())
         .tags(listTag)
-        .status(statusSold)
+        .status(STATUS_SOLD)
         .build();
   }
 
@@ -67,6 +67,16 @@ public class ServicesApi {
         .body(petDTO)
         .when()
         .put()
+        .then()
+        .log().all();
+  }
+
+  public ValidatableResponse deletePet(long id) {
+    return given(spec)
+        .basePath(BASE_PATH)
+        .pathParam("id", id)
+        .when()
+        .delete("/{id}")
         .then()
         .log().all();
   }
