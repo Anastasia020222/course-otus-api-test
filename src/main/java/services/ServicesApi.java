@@ -1,11 +1,11 @@
 package services;
 
-import static dto.Constants.*;
+import static common.Constants.*;
 import static io.restassured.RestAssured.given;
 
-import dto.Category;
-import dto.PetDto;
-import dto.Tag;
+import dto.pet.Category;
+import dto.pet.PetDto;
+import dto.pet.Tag;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ServicesApi {
 
   private static final String BASE_URL = System.getProperty("webdriver.base.url");
-  private static final String BASE_PATH = "/pet";
+  private static final String BASE_PATH = "/RestAssured";
   private final RequestSpecification spec;
   public PetDto petDTO;
 

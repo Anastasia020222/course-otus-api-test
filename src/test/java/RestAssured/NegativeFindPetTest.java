@@ -1,6 +1,8 @@
+package RestAssured;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import dto.response.PetErrorResponse;
+import dto.pet.response.PetErrorResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;

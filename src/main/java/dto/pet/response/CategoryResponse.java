@@ -1,11 +1,9 @@
-package dto.response;
+package dto.pet.response;
 
 import lombok.Data;
 
 @Data
-public class TagResponse {
-
+public class CategoryResponse {
   private Long id;
   private String name;
-
 }

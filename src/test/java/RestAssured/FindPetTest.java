@@ -1,8 +1,10 @@
-import static dto.Constants.ID;
+package RestAssured;
+
+import static common.Constants.ID;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import dto.response.PetErrorResponse;
-import dto.response.PetResponse;
+import dto.pet.response.PetErrorResponse;
+import dto.pet.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;

@@ -1,9 +1,11 @@
-import static dto.Constants.NAME_PET;
-import static dto.Constants.STATUS_SOLD;
+package RestAssured;
+
+import static common.Constants.NAME_PET;
+import static common.Constants.STATUS_SOLD;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import dto.PetDto;
-import dto.response.PetResponse;
+import dto.pet.PetDto;
+import dto.pet.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
