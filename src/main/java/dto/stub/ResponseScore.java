@@ -16,9 +16,9 @@ public class ResponseScore {
 
   @Override
   public String toString() {
-    return "ResponseScore{" +
-        "name='" + name + '\'' +
-        ", score='" + score + '\'' +
-        '}';
+    return "ResponseScore{"
+        + "name='" + name + '\''
+        + ", score='" + score + '\''
+        + '}';
   }
 }

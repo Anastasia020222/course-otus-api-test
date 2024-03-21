@@ -11,5 +11,6 @@ public class PetResponse {
   private String name;
   private Long id;
   private String status;
+  private List<String> photoUrls;
   private List<TagResponse> tags;
 }

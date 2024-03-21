@@ -13,9 +13,9 @@ public class Courses {
 
   @Override
   public String toString() {
-    return "Course{" +
-        "name='" + name + '\'' +
-        ", price='" + price + '\'' +
-        '}';
+    return "Course{"
+        + "name='" + name + '\''
+        + ", price='" + price + '\''
+        + '}';
   }
 }

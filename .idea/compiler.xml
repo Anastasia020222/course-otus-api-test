@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="course-otus-web-test" />
+        <module name="course-otus-api-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="course-otus-api-test" target="1.5" />
+      <module name="course-otus-web-test" target="20" />
     </bytecodeTargetLevel>
   </component>
 </project>

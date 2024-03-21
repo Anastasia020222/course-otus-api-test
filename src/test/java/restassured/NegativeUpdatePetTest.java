@@ -1,4 +1,4 @@
-package RestAssured;
+package restassured;
 
 import static common.Constants.NAME_PET;
 import static common.Constants.STATUS_SOLD;

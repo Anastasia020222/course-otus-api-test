@@ -1,11 +1,11 @@
 package citrus;
 
+import static com.consol.citrus.ws.actions.SoapActionBuilder.soap;
+import static common.Constants.*;
+
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.junit.spring.JUnit4CitrusSpringSupport;
 import org.junit.Test;
-
-import static com.consol.citrus.ws.actions.SoapActionBuilder.soap;
-import static common.Constants.*;
 
 public class SoapApiTest extends JUnit4CitrusSpringSupport {
 
@@ -13,22 +13,22 @@ public class SoapApiTest extends JUnit4CitrusSpringSupport {
   @Test
   @CitrusTest
   public void getTestActionsAdd() {
-    RequestAndResponse(ADD_REQUEST, ADD_SOAP_ACTIONS, ADD_RESPONSE);
+    requestAndResponse(ADD_REQUEST, ADD_SOAP_ACTIONS, ADD_RESPONSE);
   }
 
   @Test
   @CitrusTest
   public void getTestActionsSubtract() {
-    RequestAndResponse(SUBTRACT_REQUEST, SUBTRACT_SOAP_ACTIONS, SUBTRACT_RESPONSE);
+    requestAndResponse(SUBTRACT_REQUEST, SUBTRACT_SOAP_ACTIONS, SUBTRACT_RESPONSE);
   }
 
   @Test
   @CitrusTest
   public void getTestActionsMultiply() {
-    RequestAndResponse(MULTIPLY_REQUEST, MULTIPLY_SOAP_ACTIONS, MULTIPLY_RESPONSE);
+    requestAndResponse(MULTIPLY_REQUEST, MULTIPLY_SOAP_ACTIONS, MULTIPLY_RESPONSE);
   }
 
-  private void RequestAndResponse(String request, String actions, String response) {
+  private void requestAndResponse(String request, String actions, String response) {
     run(soap()
         .client(SOAP_CLIENT)              //soup client
         .send()                           //actions на отправку данных

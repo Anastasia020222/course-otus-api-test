@@ -1,4 +1,4 @@
-package RestAssured;
+package restassured;
 
 import static common.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertAll;

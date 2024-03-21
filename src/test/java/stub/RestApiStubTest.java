@@ -1,5 +1,7 @@
 package stub;
 
+import static org.junit.Assert.assertTrue;
+
 import dto.stub.Courses;
 import dto.stub.ResponseScore;
 import io.restassured.response.ValidatableResponse;
@@ -9,8 +11,6 @@ import dto.stub.ResponseUser;
 import services.UserApi;
 
 import java.util.List;
-
-import static org.junit.Assert.assertTrue;
 
 public class RestApiStubTest {
 

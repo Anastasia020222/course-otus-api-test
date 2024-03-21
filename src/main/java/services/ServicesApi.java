@@ -16,7 +16,7 @@ import java.util.List;
 public class ServicesApi {
 
   private static final String BASE_URL = System.getProperty("webdriver.base.url");
-  private static final String BASE_PATH = "/RestAssured";
+  private static final String BASE_PATH = "/pet";
   private final RequestSpecification spec;
   public PetDto petDTO;
 

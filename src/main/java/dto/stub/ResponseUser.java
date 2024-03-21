@@ -18,11 +18,11 @@ public class ResponseUser {
 
   @Override
   public String toString() {
-    return "User{" +
-        "name='" + name + '\'' +
-        ", course='" + course + '\'' +
-        ", email='" + email + '\'' +
-        ", age=" + age +
-        '}';
+    return "User{"
+        + "name='" + name + '\''
+        + ", course='" + course + '\''
+        + ", email='" + email + '\''
+        + ", age=" + age
+        + '}';
   }
 }
