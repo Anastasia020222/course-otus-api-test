@@ -1,0 +1,9 @@
+target
+.idea
+*.iml
+.gradle
+.DS_Store
+build
+test-output
+out
+lombok.config
