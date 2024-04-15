@@ -32,7 +32,7 @@ timeout(60) {
         try {
             stage("Run UI tests") {
                 sh("rm -rf /root/api-allure/*")
-                sh "docker run --rm --env-file ./.env -v m2:/root/.m2 -v api-allure:/home/unixuser/ui_tests/allure-results -t api_tests:1.0.0"
+                sh "docker run --rm --env-file ./.env -v m2:/root/.m2 -v api-allure:/home/unixuser/api_tests/allure-results -t api_tests:1.0.0"
             }
         }
         finally {
