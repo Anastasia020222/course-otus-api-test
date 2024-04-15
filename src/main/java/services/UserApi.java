@@ -2,6 +2,7 @@ package services;
 
 import static io.restassured.RestAssured.given;
 
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
@@ -24,6 +25,7 @@ public class UserApi {
         .log().all();
   }
 
+  @Step("Получение списка пользователей")
   public ValidatableResponse getUser() {
     return given(spec)
         .basePath(GET_USER_PATH)
@@ -33,6 +35,7 @@ public class UserApi {
         .log().all();
   }
 
+  @Step("Получение списка курсов")
   public ValidatableResponse getCourse() {
     return given(spec)
         .basePath(COURSE_PATH)
@@ -42,6 +45,7 @@ public class UserApi {
         .log().all();
   }
 
+  @Step("Получение оценки пользователя")
   public ValidatableResponse getScore() {
     return given(spec)
         .basePath(SCORE_PATH)

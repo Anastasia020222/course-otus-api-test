@@ -6,6 +6,7 @@ import static io.restassured.RestAssured.given;
 import dto.pet.Category;
 import dto.pet.PetDto;
 import dto.pet.Tag;
+import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
@@ -29,6 +30,7 @@ public class ServicesApi {
         .log().all();
   }
 
+  @Step("Добавление питомца")
   public ValidatableResponse addPet(PetDto petDTO) {
     return given(spec)
         .basePath(BASE_PATH)
@@ -39,6 +41,7 @@ public class ServicesApi {
         .log().all();
   }
 
+  @Step("Создание питомца")
   public PetDto createPet() {
     List<Tag> listTag = new ArrayList<>();
     listTag.add(new Tag(29L, "cat"));
@@ -53,6 +56,7 @@ public class ServicesApi {
         .build();
   }
 
+  @Step("Поиск питомца")
   public ValidatableResponse findPetById(long id) {
     return given(spec)
         .basePath(BASE_PATH)
@@ -63,6 +67,7 @@ public class ServicesApi {
         .log().all();
   }
 
+  @Step("Изменение потомца")
   public ValidatableResponse updatePet(PetDto petDTO) {
     return given(spec)
         .basePath(BASE_PATH)
@@ -73,6 +78,7 @@ public class ServicesApi {
         .log().all();
   }
 
+  @Step("Удаление питомца")
   public ValidatableResponse deletePet(long id) {
     return given(spec)
         .basePath(BASE_PATH)
