@@ -13,6 +13,7 @@
         <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <allure.results.directory>${project.basedir}/allure-results</allure.results.directory>
+        <maven.compiler.plugin.version>3.9.0</maven.compiler.plugin.version>
 
         <base.api.url>https://petstore.swagger.io/v2</base.api.url>
         <wiremock.url>http://172.30.207.187:8091</wiremock.url>
@@ -162,6 +163,16 @@
                         <base.api.url>${base.api.url}</base.api.url>
                         <wiremock.url>${wiremock.url}</wiremock.url>
                     </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
             <plugin>
