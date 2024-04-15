@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mvn clean test -Dbase.url=$BASE_URL -Dbrowser=$BROWSER -DversionBrowser=$VERSION_BROWSER -Dremote=$REMOTE
+mvn clean test -Dapi.base.url=$BASE_API_URL -Dwiremock.url=$WIREMOCK_URL
