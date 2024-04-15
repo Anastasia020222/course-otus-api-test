@@ -6,24 +6,28 @@ import static common.Constants.*;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.junit.spring.JUnit4CitrusSpringSupport;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 
 public class SoapApiTest extends JUnit4CitrusSpringSupport {
 
   //В тестах используется сервис http://www.dneonline.com/calculator.asmx
   @Test
   @CitrusTest
+  @DisplayName("SOAP. Сложение чисел")
   public void getTestActionsAdd() {
     requestAndResponse(ADD_REQUEST, ADD_SOAP_ACTIONS, ADD_RESPONSE);
   }
 
   @Test
   @CitrusTest
+  @DisplayName("SOAP. Деление чисел")
   public void getTestActionsSubtract() {
     requestAndResponse(SUBTRACT_REQUEST, SUBTRACT_SOAP_ACTIONS, SUBTRACT_RESPONSE);
   }
 
   @Test
   @CitrusTest
+  @DisplayName("SOAP. Умножение чисел")
   public void getTestActionsMultiply() {
     requestAndResponse(MULTIPLY_REQUEST, MULTIPLY_SOAP_ACTIONS, MULTIPLY_RESPONSE);
   }

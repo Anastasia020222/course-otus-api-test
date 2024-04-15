@@ -6,6 +6,7 @@ import static io.restassured.RestAssured.given;
 import dto.pet.Category;
 import dto.pet.PetDto;
 import dto.pet.Tag;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
@@ -22,6 +23,7 @@ public class ServicesApi {
 
   public ServicesApi() {
     spec = given()
+        .filter(new AllureRestAssured())
         .baseUri(BASE_URL)
         .contentType(ContentType.JSON)
         .log().all();

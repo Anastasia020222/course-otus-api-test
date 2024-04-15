@@ -6,15 +6,18 @@ import dto.pet.response.PetErrorResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import services.AllureRestAPI;
 import services.ServicesApi;
 
-public class NegativeFindPetTest {
+public class NegativeFindPetTest extends AllureRestAPI {
 
   private final ServicesApi userApi = new ServicesApi();
 
   //Проверяем поиск питомца с отрицательным id
   @Test
+  @DisplayName("Поиск питомца с отрицательным id")
   public void findMinusId() {
     long id = -7688579L;
 

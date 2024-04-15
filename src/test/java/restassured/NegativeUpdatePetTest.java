@@ -9,16 +9,19 @@ import dto.pet.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import services.AllureRestAPI;
 import services.ServicesApi;
 
-public class NegativeUpdatePetTest {
+public class NegativeUpdatePetTest extends AllureRestAPI {
 
   private final ServicesApi userApi = new ServicesApi();
   private PetDto petDTO;
 
   //Проверяем создание питомца без указания id
   @Test
+  @DisplayName("Создание потомца по id")
   public void addPetWithoutId() {
     petDTO = PetDto.builder()
         .name(NAME_PET)

@@ -10,19 +10,22 @@ import dto.pet.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import services.AllureRestAPI;
 import services.ServicesApi;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddPetTest {
+public class AddPetTest extends AllureRestAPI {
 
   private final ServicesApi userApi = new ServicesApi();
   private PetDto petDTO;
 
   //Проверяем создание нового питомца с заданным id
   @Test
+  @DisplayName("Создание нового питомца")
   public void addPet() {
     List<Tag> listTag = new ArrayList<>();
     listTag.add(new Tag(29L, "cat"));

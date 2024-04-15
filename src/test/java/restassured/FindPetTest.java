@@ -8,10 +8,12 @@ import dto.pet.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import services.AllureRestAPI;
 import services.ServicesApi;
 
-public class FindPetTest {
+public class FindPetTest extends AllureRestAPI {
 
   private final ServicesApi userApi = new ServicesApi();
 
@@ -20,6 +22,7 @@ public class FindPetTest {
   //Сделать get запрос на получение питомца по полученному id в шаге выше
   //Проверить, что id у созданного питомца и полученого совпадают, ответ 200
   @Test
+  @DisplayName("Поиск питомца по id")
   public void findPetId() {
     ValidatableResponse response = userApi.addPet(userApi.createPet());
     PetResponse actualPet = response.extract().body().as(PetResponse.class);
@@ -46,6 +49,7 @@ public class FindPetTest {
   //Делаем запрос с любым неверным id
   //Проверяем, что код 404, проверяем ответ: code, type и message
   @Test
+  @DisplayName("Поиск питомца по неверному/несуществующему id")
   public void findPetIncorrectId() {
     ValidatableResponse response = userApi.findPetById(ID);
     PetErrorResponse actualPet = response.extract().body().as(PetErrorResponse.class);

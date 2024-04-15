@@ -6,6 +6,7 @@ import dto.stub.Courses;
 import dto.stub.ResponseScore;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import dto.stub.ResponseUser;
 import services.UserApi;
@@ -20,6 +21,7 @@ public class RestApiStubTest {
   // /user/get/all - для получения списка всех пользователей
   // для запуска тестов нужно запустить wiremock на виртуалке с конфигами
   @Test
+  @DisplayName("Stub. Получение списка всех пользователей")
   public void getUser() {
     ValidatableResponse response = userApi.getUser();
     ResponseUser responseUser = response.extract().body().as(ResponseUser.class);
@@ -33,6 +35,7 @@ public class RestApiStubTest {
 
   // /cource/get/all для получения списка курсов
   @Test
+  @DisplayName("Stub. Получение списка курсов")
   public void getCourse() {
     ValidatableResponse response = userApi.getCourse();
     Courses[] getCourseList = response.extract().body().as(Courses[].class);
@@ -47,6 +50,7 @@ public class RestApiStubTest {
 
   // /user/get/{id} для получение оценки пользователя
   @Test
+  @DisplayName("Stub. Получение оценки пользователя")
   public void getScore() {
     ValidatableResponse response = userApi.getScore();
     ResponseScore responseScore = response.extract().body().as(ResponseScore.class);

@@ -9,12 +9,14 @@ import dto.pet.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import services.AllureRestAPI;
 import services.ServicesApi;
 
 import java.util.Random;
 
-public class UpdatePetTest {
+public class UpdatePetTest extends AllureRestAPI {
 
   private final ServicesApi userApi = new ServicesApi();
   private PetDto petDTO;
@@ -22,6 +24,7 @@ public class UpdatePetTest {
   //Изменение данных у существующего питомца
   //Создать питомца. Изменить любые данные и проверить, что у этого питомца (с тем же id) данные изменились
   @Test
+  @DisplayName("Изменение данных у существующего питомца")
   public void updatePet() {
     ValidatableResponse response = userApi.addPet(userApi.createPet());
     PetResponse actualPet = response.extract().body().as(PetResponse.class);
@@ -61,6 +64,7 @@ public class UpdatePetTest {
   //Проверить, что питомца не существует и получить этот id
   //Проверяем, что питомец будет создан,т.к его не существует
   @Test
+  @DisplayName("Изменение данных у несуществующего питомца")
   public void putInvalidPet() {
     long newId = getNonExistentPetId();
     petDTO = PetDto.builder()
