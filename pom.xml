@@ -13,8 +13,8 @@
         <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <webdriver.base.url>https://petstore.swagger.io/v2</webdriver.base.url>
-        <wiremock.url>http://localhost:8091</wiremock.url>
+        <base.api.url>https://petstore.swagger.io/v2</base.api.url>
+        <wiremock.url>http://172.30.207.187:8091</wiremock.url>
 
         <junit.version>5.10.0</junit.version>
         <lombok.version>1.18.24</lombok.version>
@@ -132,7 +132,7 @@
                 <version>${surefire.plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                        <base.api.url>${base.api.url}</base.api.url>
                         <wiremock.url>${wiremock.url}</wiremock.url>
                     </systemPropertyVariables>
                 </configuration>
