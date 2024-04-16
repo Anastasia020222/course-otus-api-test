@@ -27,6 +27,7 @@
         <slf4j.version>1.7.30</slf4j.version>
         <log4j2.version>2.15.0</log4j2.version>
         <allure.version>2.24.0</allure.version>
+        <aspectj.version>1.9.6</aspectj.version>
     </properties>
 
     <dependencies>
@@ -92,7 +93,7 @@
         <dependency>
             <groupId>org.citrusframework</groupId>
             <artifactId>citrus-junit</artifactId>
-            <version>4.0.0</version>
+            <version>4.2.0</version>
         </dependency>
 
         <dependency>
@@ -109,6 +110,12 @@
             <groupId>com.consol.citrus</groupId>
             <artifactId>citrus-validation-json</artifactId>
             <version>${citrus.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-citrus</artifactId>
+            <version>${allure.version}</version>
         </dependency>
 
         <dependency>

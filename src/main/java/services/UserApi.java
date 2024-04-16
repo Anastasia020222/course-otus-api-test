@@ -12,7 +12,7 @@ public class UserApi {
   private static final String BASE_URL = System.getProperty("wiremock.url");
   private static final String GET_USER_PATH = "/user/get/all";
 
-  private static final String COURSE_PATH = "/course/get/all";
+  private static final String COURSE_PATH = "/cource/get/all";
 
   private static final String SCORE_PATH = "/user/get/";
 
@@ -25,7 +25,6 @@ public class UserApi {
         .log().all();
   }
 
-  @Step("Получение списка пользователей")
   public ValidatableResponse getUser() {
     return given(spec)
         .basePath(GET_USER_PATH)
@@ -35,7 +34,6 @@ public class UserApi {
         .log().all();
   }
 
-  @Step("Получение списка курсов")
   public ValidatableResponse getCourse() {
     return given(spec)
         .basePath(COURSE_PATH)
@@ -45,7 +43,6 @@ public class UserApi {
         .log().all();
   }
 
-  @Step("Получение оценки пользователя")
   public ValidatableResponse getScore() {
     return given(spec)
         .basePath(SCORE_PATH)
