@@ -27,7 +27,6 @@
         <slf4j.version>1.7.30</slf4j.version>
         <log4j2.version>2.15.0</log4j2.version>
         <allure.version>2.24.0</allure.version>
-        <aspectj.version>1.9.6</aspectj.version>
     </properties>
 
     <dependencies>
@@ -160,6 +159,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.plugin.version}</version>
                 <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>3</threadCount>
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
