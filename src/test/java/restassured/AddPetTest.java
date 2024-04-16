@@ -9,9 +9,9 @@ import dto.pet.Tag;
 import dto.pet.response.PetResponse;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 import services.AllureRestAPI;
 import services.ServicesApi;
 
