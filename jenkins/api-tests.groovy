@@ -31,12 +31,14 @@ timeout(60) {
 
         try {
             stage("Run UI tests") {
+                sh "pwd"
                 sh("rm -rf /root/api-allure/*")
                 sh "docker run --rm --env-file ./.env -v m2:/root/.m2 -v api-allure:/home/unixuser/api_tests/allure-results -t api_tests:1.0.0"
             }
         }
         finally {
             stage("Publication of the allure report") {
+                sh "pwd"
                 sh("mkdir ./allure-results")
                 sh("cp /root/api-allure/* ./allure-results/")
                 generateAllure()
