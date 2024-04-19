@@ -1,5 +1,5 @@
 timeout(60) {
-    node('maven-slave') {
+    //node('maven-slave') {
 
         wrap([$class: 'BuildUser']) {
             currentBuild.description = """
@@ -42,7 +42,7 @@ timeout(60) {
                 generateAllure()
             }
         }
-    }
+    //}
 }
 
 def generateAllure() {

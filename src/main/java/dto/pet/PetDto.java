@@ -1,10 +1,7 @@
 package dto.pet;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +9,7 @@ import java.util.List;
 @Setter
 @Builder
 @AllArgsConstructor
+@ToString
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class PetDto {
 
